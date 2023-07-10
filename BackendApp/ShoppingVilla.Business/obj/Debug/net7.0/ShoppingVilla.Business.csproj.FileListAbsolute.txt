@@ -1,0 +1,15 @@
+D:\Projects\ShoppingVilla\ShoppingVilla\BackendApp\ShoppingVilla.Business\bin\Debug\net7.0\ShoppingVilla.Business.deps.json
+D:\Projects\ShoppingVilla\ShoppingVilla\BackendApp\ShoppingVilla.Business\bin\Debug\net7.0\ShoppingVilla.Business.dll
+D:\Projects\ShoppingVilla\ShoppingVilla\BackendApp\ShoppingVilla.Business\bin\Debug\net7.0\ShoppingVilla.Business.pdb
+D:\Projects\ShoppingVilla\ShoppingVilla\BackendApp\ShoppingVilla.Business\bin\Debug\net7.0\ShoppingVilla.Data.dll
+D:\Projects\ShoppingVilla\ShoppingVilla\BackendApp\ShoppingVilla.Business\bin\Debug\net7.0\ShoppingVilla.Data.pdb
+D:\Projects\ShoppingVilla\ShoppingVilla\BackendApp\ShoppingVilla.Business\obj\Debug\net7.0\ShoppingVilla.Business.csproj.AssemblyReference.cache
+D:\Projects\ShoppingVilla\ShoppingVilla\BackendApp\ShoppingVilla.Business\obj\Debug\net7.0\ShoppingVilla.Business.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\ShoppingVilla\ShoppingVilla\BackendApp\ShoppingVilla.Business\obj\Debug\net7.0\ShoppingVilla.Business.AssemblyInfoInputs.cache
+D:\Projects\ShoppingVilla\ShoppingVilla\BackendApp\ShoppingVilla.Business\obj\Debug\net7.0\ShoppingVilla.Business.AssemblyInfo.cs
+D:\Projects\ShoppingVilla\ShoppingVilla\BackendApp\ShoppingVilla.Business\obj\Debug\net7.0\ShoppingVilla.Business.csproj.CoreCompileInputs.cache
+D:\Projects\ShoppingVilla\ShoppingVilla\BackendApp\ShoppingVilla.Business\obj\Debug\net7.0\ShoppingVilla.Business.csproj.CopyComplete
+D:\Projects\ShoppingVilla\ShoppingVilla\BackendApp\ShoppingVilla.Business\obj\Debug\net7.0\ShoppingVilla.Business.dll
+D:\Projects\ShoppingVilla\ShoppingVilla\BackendApp\ShoppingVilla.Business\obj\Debug\net7.0\refint\ShoppingVilla.Business.dll
+D:\Projects\ShoppingVilla\ShoppingVilla\BackendApp\ShoppingVilla.Business\obj\Debug\net7.0\ShoppingVilla.Business.pdb
+D:\Projects\ShoppingVilla\ShoppingVilla\BackendApp\ShoppingVilla.Business\obj\Debug\net7.0\ref\ShoppingVilla.Business.dll
