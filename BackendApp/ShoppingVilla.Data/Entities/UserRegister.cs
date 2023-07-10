@@ -10,21 +10,22 @@ namespace ShoppingVilla.Data.Entities
 {
     public class UserRegister
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity),Key()]
         public int Id { get; set; }
         [MinLength(5)]
         [Required(ErrorMessage ="Name is required")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
         [MinLength(5)]
         [Required(ErrorMessage = "User Name is required")]
-        public string UserName { get; set; }
+        public string? UserName { get; set; }
         [EmailAddress]
         [Required(ErrorMessage = "Email is required")]
-        public string Email { get; set; }
+        public string? Email { get; set; }
         [Required(ErrorMessage = "Password is required")]
-        public string Password { get; set; }
+        public string? Password { get; set; }
         [Required(ErrorMessage = "Confirm Password is required")]
-        public string ConfirmPassword { get; set; }
+        public string? ConfirmPassword { get; set; }
+
     }
 }

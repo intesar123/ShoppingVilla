@@ -10,13 +10,19 @@ namespace ShoppingVilla.Data.Data
 {
     public class ApplicationContext: DbContext
     {
-       
-        public ApplicationContext(DbContextOptions<ApplicationContext> options):base(options)
+        public DbSet<UserLogin> userLogins { get; set; }
+        public DbSet<UserRegister> userRegister { get; set; }
+        public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {
 
         }
 
-        public DbSet<UserLogin> userLogins;
-        public DbSet<UserRegister> userRegister;
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.Entity<UserLogin>(ul =>
+            {
+                ul.HasNoKey();
+            });
+        }
     }
 }
