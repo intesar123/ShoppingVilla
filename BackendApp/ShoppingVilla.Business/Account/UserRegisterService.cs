@@ -9,36 +9,31 @@ using System.Threading.Tasks;
 
 namespace ShoppingVilla.Business.Account
 {
-    public class UserRegisterService : IUserRegisterService
-    {
-        private readonly IUserRegisterRepository _repository;
-        public UserRegisterService(IUserRegisterRepository repository)
-        {
-            _repository = repository;
-        }
-        public async Task<int> DeleteAsync(int Id)
-        {
-            return await _repository.DeleteAsync(Id);
-        }
+    //public class UserRegisterService : IUserRegisterService
+    //{
+    //    private readonly IUserRegisterRepository _repository;
+    //    public UserRegisterService(IUserRegisterRepository repository)
+    //    {
+    //        _repository = repository;
+    //    }
+    //    public Task<int> DeleteAsync(int id)
+    //    {
+    //        throw new NotImplementedException();
+    //    }
 
-        public async Task<IEnumerable<UserRegister>> GetAllAsync()
-        {
-            return await _repository.GetAllAsync();
-        }
+    //    public Task<UserRegister> GetByIdAsync(int id)
+    //    {
+    //        throw new NotImplementedException();
+    //    }
 
-        public async Task<UserRegister> GetByIdAsync(int Id)
-        {
-           return await _repository.GetByIdAsync(Id);
-        }
+    //    public Task<int> RegisterAsync(UserRegister userRegister)
+    //    {
+    //        return _repository.Create(userRegister);
+    //    }
 
-        public async Task<int> RegisterAsync(UserRegister userRegister)
-        {
-            return await _repository.CreateAsync(userRegister);
-        }
-
-        public async Task<int> UpdateAsync(UserRegister userRegister)
-        {
-            return await _repository.UpdateAsync(userRegister);
-        }
-    }
+    //    public Task<int> UpdateAsync(UserRegister userRegister)
+    //    {
+    //        throw new NotImplementedException();
+    //    }
+    //}
 }

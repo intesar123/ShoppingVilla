@@ -8,44 +8,32 @@ using System.Threading.Tasks;
 
 namespace ShoppingVilla.Data.Entities.Interface
 {
-    public class UserRegisterRepository : IUserRegisterRepository
+    public class UserRegisterRepository : GenericRepository<UserRegister>, IUserRegisterRepository
     {
-        private readonly ApplicationContext _dbContext;
+   
+        public UserRegisterRepository(ApplicationContext dbContext): base(dbContext)
+        {
 
-        public UserRegisterRepository(ApplicationContext dbContext)
-        {
-            _dbContext = dbContext;
         }
-
-        public async Task<int> CreateAsync(UserRegister userRegister)
+        public override async void CreateAsync(UserRegister userRegister)
         {
-            _dbContext.Add(userRegister);
-            return await _dbContext.SaveChangesAsync();
+            _context.Add(userRegister);
         }
-
-        public async Task<IEnumerable<UserRegister>> GetAllAsync()
+        public override async Task<List<UserRegister>> GetAllAsync()
         {
-            return await _dbContext.userRegister.ToListAsync();
+            return await _context.userRegister.ToListAsync();
         }
-
-        public async Task<UserRegister> GetByIdAsync(int Id)
+        public override async Task<UserRegister> GetByIdAsync(int Id)
         {
-            return _dbContext.userRegister.Where(x => x.Id == Id).SingleOrDefault();
+            return _context.userRegister.Where(x => x.Id == Id).SingleOrDefault();
         }
-        public async Task<int> UpdateAsync(UserRegister userRegister)
+        public override async void UpdateAsync(UserRegister userRegister)
         {
-            _dbContext.Update(userRegister);
-            return _dbContext.SaveChanges();
+            _context.Update(userRegister);
         }
-        public async Task<int> DeleteAsync(int Id)
-        {
-            var user = await _dbContext.userRegister.Where(x => x.Id == Id).FirstOrDefaultAsync();
-            if(user != null)
-            {
-                _dbContext.Remove(user);
-                return _dbContext.SaveChanges();
-            }
-            else { return 0; }
+        public override async void DeleteAsync(UserRegister userRegister)
+        {                        
+                _context.Remove(userRegister);  
         }
     }
 }

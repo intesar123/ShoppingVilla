@@ -3,6 +3,7 @@ using Microsoft.Extensions.Options;
 using ShoppingVilla.Business.Account;
 using ShoppingVilla.Data.Data;
 using ShoppingVilla.Data.Entities.Interface;
+using ShoppingVilla.Data.Entities.UnitOfWork;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,11 +22,8 @@ builder.Services.AddDbContext<ApplicationContext>(options => options.UseSqlServe
 
 #region DI
 
-builder.Services.AddScoped<IUserLoginRepository, UserLoginRepository>();
-builder.Services.AddScoped<IUserRegisterRepository, UserRegisterRepository>();
+builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 
-builder.Services.AddScoped<IUserRegisterService, UserRegisterService>();
-builder.Services.AddScoped<IUserLoginService, UserLoginService>();
 #endregion
 
 
