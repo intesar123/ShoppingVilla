@@ -18,9 +18,9 @@ namespace ShoppingVilla.Data.Entities.UnitOfWork
                 userRegisterRepository = new UserRegisterRepository(_context);
         }
 
-        public Task<int> SaveChangesAsync()
+        public async Task<int> SaveChangesAsync()
         {
-           return _context.SaveChangesAsync();
+           return await _context.SaveChangesAsync();
         }
 
         public void Dispose()

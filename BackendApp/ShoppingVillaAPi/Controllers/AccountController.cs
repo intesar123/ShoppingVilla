@@ -24,28 +24,35 @@ namespace ShoppingVillaAPi.Controllers
             var users= await _unitOfWork.userRegisterRepository.GetAllAsync();
             return Ok(users);
         }
-         
-        //[HttpGet( Name ="Get/{Id}")]
-        //public async Task<UserRegister> Get(int Id)
-        //{
-        //    return await _service.GetByIdAsync(Id);
-        //}
 
-        //[HttpPost]
-        //public async Task<int> Register([FromBody] UserRegister user)
-        //{
-        //    return await _service.RegisterAsync(user);
-        //}
+        [HttpGet(Name = "Get/{Id}")]
+        public async Task<UserRegister> Get(int Id)
+        {
+            return await _unitOfWork.userRegisterRepository.GetByIdAsync(Id);
+        }
 
-        //[HttpPut]
-        //public async Task<int> Update([FromBody] UserRegister user)
-        //{
-        //    return await _service.UpdateAsync(user);
-        //}
-        //[HttpDelete(Name ="Delete/{Id}")]
-        //public async Task<int> Delete(int Id)
-        //{
-        //    return await _service.DeleteAsync(Id);
-        //}
+        [HttpPost]
+        public async Task<IActionResult> Register([FromBody] UserRegister user)
+        {
+             _unitOfWork.userRegisterRepository.CreateAsync(user);
+            var result=  await _unitOfWork.SaveChangesAsync();
+            return Ok(result);
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> Update([FromBody] UserRegister user)
+        {
+             _unitOfWork.userRegisterRepository.UpdateAsync(user);
+            var result= await _unitOfWork.SaveChangesAsync();
+            return Ok(result);
+        }
+        [HttpDelete(Name = "Delete/{Id}")]
+        public async Task<IActionResult> Delete(int Id)
+        {
+            var user = await _unitOfWork.userRegisterRepository.GetByIdAsync(Id);
+            _unitOfWork.userRegisterRepository.DeleteAsync(user);
+            var result =await _unitOfWork.SaveChangesAsync();
+            return Ok(result);
+        }
     }
 }

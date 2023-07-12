@@ -32,8 +32,11 @@ namespace ShoppingVilla.Data.Entities.Interface
             _context.Update(userRegister);
         }
         public override async void DeleteAsync(UserRegister userRegister)
-        {                        
-                _context.Remove(userRegister);  
+        {          
+            if(userRegister!=null)
+            {
+                _context.Remove(userRegister);
+            }
         }
     }
 }
