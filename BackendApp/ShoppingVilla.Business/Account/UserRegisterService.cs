@@ -16,24 +16,29 @@ namespace ShoppingVilla.Business.Account
         {
             _repository = repository;
         }
-        public Task<int> DeleteAsync(int id)
+        public async Task<int> DeleteAsync(int Id)
         {
-            throw new NotImplementedException();
+            return await _repository.DeleteAsync(Id);
         }
 
-        public Task<UserRegister> GetByIdAsync(int id)
+        public async Task<IEnumerable<UserRegister>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return await _repository.GetAllAsync();
         }
 
-        public Task<int> RegisterAsync(UserRegister userRegister)
+        public async Task<UserRegister> GetByIdAsync(int Id)
         {
-            return _repository.Create(userRegister);
+           return await _repository.GetByIdAsync(Id);
         }
 
-        public Task<int> UpdateAsync(UserRegister userRegister)
+        public async Task<int> RegisterAsync(UserRegister userRegister)
         {
-            throw new NotImplementedException();
+            return await _repository.CreateAsync(userRegister);
+        }
+
+        public async Task<int> UpdateAsync(UserRegister userRegister)
+        {
+            return await _repository.UpdateAsync(userRegister);
         }
     }
 }

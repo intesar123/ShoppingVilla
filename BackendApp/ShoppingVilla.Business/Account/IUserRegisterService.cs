@@ -13,6 +13,7 @@ namespace ShoppingVilla.Business.Account
         Task<int> UpdateAsync(UserRegister userRegister);
         Task<int> DeleteAsync(int id);
         Task<UserRegister> GetByIdAsync(int id);
-        
+        Task<IEnumerable<UserRegister>> GetAllAsync();
+
     }
 }

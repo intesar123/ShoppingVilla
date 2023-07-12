@@ -19,10 +19,23 @@ namespace ShoppingVilla.Data.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            base.OnModelCreating(builder);
             builder.Entity<UserLogin>(ul =>
             {
                 ul.HasNoKey();
             });
+
+            #region for single unique key
+            builder.Entity<UserRegister>(r =>
+            {
+                r.HasIndex(u=>u.Email).IsUnique();
+                r.HasIndex(u => u.UserName).IsUnique();
+            });
+            #endregion
+            #region for multiple unique key
+            //builder.Entity<UserRegister>().HasKey(r=> new {r.Id, r.Email,r.UserName});
+            #endregion
+
         }
     }
 }

@@ -11,7 +11,7 @@ using ShoppingVilla.Data.Data;
 namespace ShoppingVilla.Data.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20230710190916_Initial")]
+    [Migration("20230712095834_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -51,7 +51,7 @@ namespace ShoppingVilla.Data.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -63,9 +63,15 @@ namespace ShoppingVilla.Data.Migrations
 
                     b.Property<string>("UserName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Email")
+                        .IsUnique();
+
+                    b.HasIndex("UserName")
+                        .IsUnique();
 
                     b.ToTable("userRegister");
                 });

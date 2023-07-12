@@ -28,8 +28,8 @@ namespace ShoppingVilla.Data.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    UserName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    UserName = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ConfirmPassword = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
@@ -37,6 +37,18 @@ namespace ShoppingVilla.Data.Migrations
                 {
                     table.PrimaryKey("PK_userRegister", x => x.Id);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_userRegister_Email",
+                table: "userRegister",
+                column: "Email",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_userRegister_UserName",
+                table: "userRegister",
+                column: "UserName",
+                unique: true);
         }
 
         /// <inheritdoc />

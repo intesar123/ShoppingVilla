@@ -17,25 +17,35 @@ namespace ShoppingVilla.Data.Entities.Interface
             _dbContext = dbContext;
         }
 
-        public async Task<int> Create(UserRegister userRegister)
+        public async Task<int> CreateAsync(UserRegister userRegister)
         {
             _dbContext.Add(userRegister);
             return await _dbContext.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<UserRegister>> GetAll()
+        public async Task<IEnumerable<UserRegister>> GetAllAsync()
         {
             return await _dbContext.userRegister.ToListAsync();
         }
 
-        public async Task<UserRegister> GetById(int id)
+        public async Task<UserRegister> GetByIdAsync(int Id)
         {
-            return _dbContext.userRegister.Where(x => x.Id == id).SingleOrDefault();
+            return _dbContext.userRegister.Where(x => x.Id == Id).SingleOrDefault();
         }
-        public async Task<int> Update(UserRegister userRegister)
+        public async Task<int> UpdateAsync(UserRegister userRegister)
         {
             _dbContext.Update(userRegister);
             return _dbContext.SaveChanges();
+        }
+        public async Task<int> DeleteAsync(int Id)
+        {
+            var user = await _dbContext.userRegister.Where(x => x.Id == Id).FirstOrDefaultAsync();
+            if(user != null)
+            {
+                _dbContext.Remove(user);
+                return _dbContext.SaveChanges();
+            }
+            else { return 0; }
         }
     }
 }

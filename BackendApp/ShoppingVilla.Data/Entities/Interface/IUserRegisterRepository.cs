@@ -8,9 +8,10 @@ namespace ShoppingVilla.Data.Entities.Interface
 {
     public interface IUserRegisterRepository
     {
-        Task<IEnumerable<UserRegister>> GetAll();
-        Task<UserRegister> GetById(int id);
-        Task<int> Create(UserRegister userRegister);
-        Task<int> Update(UserRegister userRegister);
+        Task<IEnumerable<UserRegister>> GetAllAsync();
+        Task<UserRegister> GetByIdAsync(int id);
+        Task<int> CreateAsync(UserRegister userRegister);
+        Task<int> UpdateAsync(UserRegister userRegister);
+        Task<int> DeleteAsync(int id);
     }
 }
