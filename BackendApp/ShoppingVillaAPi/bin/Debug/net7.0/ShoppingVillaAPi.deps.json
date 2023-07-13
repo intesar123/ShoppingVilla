@@ -12,7 +12,6 @@
           "Microsoft.EntityFrameworkCore": "7.0.8",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.8",
           "Microsoft.EntityFrameworkCore.Tools": "7.0.8",
-          "ShoppingVilla.Business": "1.0.0",
           "ShoppingVilla.Data": "1.0.0",
           "Swashbuckle.AspNetCore": "6.5.0"
         },
@@ -675,14 +674,6 @@
           }
         }
       },
-      "ShoppingVilla.Business/1.0.0": {
-        "dependencies": {
-          "ShoppingVilla.Data": "1.0.0"
-        },
-        "runtime": {
-          "ShoppingVilla.Business.dll": {}
-        }
-      },
       "ShoppingVilla.Data/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "7.0.8",
@@ -1217,11 +1208,6 @@
       "sha512": "sha512-c1ho9WU9ZxMZawML+ssPKZfdnrg/OjR3pe0m9v8230z3acqphwvPJqzAkH54xRYm5ntZHGG1EPP3sux9H3qSPg==",
       "path": "system.windows.extensions/5.0.0",
       "hashPath": "system.windows.extensions.5.0.0.nupkg.sha512"
-    },
-    "ShoppingVilla.Business/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
     },
     "ShoppingVilla.Data/1.0.0": {
       "type": "project",

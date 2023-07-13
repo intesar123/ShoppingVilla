@@ -1239,19 +1239,6 @@
           }
         }
       },
-      "ShoppingVilla.Business/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v7.0",
-        "dependencies": {
-          "ShoppingVilla.Data": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/ShoppingVilla.Business.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/ShoppingVilla.Business.dll": {}
-        }
-      },
       "ShoppingVilla.Data/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
@@ -3936,11 +3923,6 @@
         "version.txt"
       ]
     },
-    "ShoppingVilla.Business/1.0.0": {
-      "type": "project",
-      "path": "../ShoppingVilla.Business/ShoppingVilla.Business.csproj",
-      "msbuildProject": "../ShoppingVilla.Business/ShoppingVilla.Business.csproj"
-    },
     "ShoppingVilla.Data/1.0.0": {
       "type": "project",
       "path": "../ShoppingVilla.Data/ShoppingVilla.Data.csproj",
@@ -3953,7 +3935,6 @@
       "Microsoft.EntityFrameworkCore >= 7.0.8",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.8",
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.8",
-      "ShoppingVilla.Business >= 1.0.0",
       "ShoppingVilla.Data >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.5.0"
     ]
@@ -3992,9 +3973,6 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "D:\\Projects\\ShoppingVilla\\ShoppingVilla\\BackendApp\\ShoppingVilla.Business\\ShoppingVilla.Business.csproj": {
-              "projectPath": "D:\\Projects\\ShoppingVilla\\ShoppingVilla\\BackendApp\\ShoppingVilla.Business\\ShoppingVilla.Business.csproj"
-            },
             "D:\\Projects\\ShoppingVilla\\ShoppingVilla\\BackendApp\\ShoppingVilla.Data\\ShoppingVilla.Data.csproj": {
               "projectPath": "D:\\Projects\\ShoppingVilla\\ShoppingVilla\\BackendApp\\ShoppingVilla.Data\\ShoppingVilla.Data.csproj"
             }

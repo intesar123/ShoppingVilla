@@ -5,11 +5,9 @@ VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingVillaAPi", "ShoppingVillaAPi.csproj", "{382C0FBC-886B-450A-BD3F-6D90F5D8DA86}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingVilla.Business", "..\ShoppingVilla.Business\ShoppingVilla.Business.csproj", "{A5E98170-5DF7-4566-9EB7-B3E1A1DA7FB3}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingVilla.Data", "..\ShoppingVilla.Data\ShoppingVilla.Data.csproj", "{C6EEE39F-F7B3-46FB-9DBA-C29CE361D89B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingVilla.Common", "..\ShoppingVilla.Common\ShoppingVilla.Common.csproj", "{6657F4CD-0EAF-4767-9FE0-FAD0A5B800B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingVilla.Common", "..\ShoppingVilla.Common\ShoppingVilla.Common.csproj", "{6657F4CD-0EAF-4767-9FE0-FAD0A5B800B8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +19,6 @@ Global
 		{382C0FBC-886B-450A-BD3F-6D90F5D8DA86}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{382C0FBC-886B-450A-BD3F-6D90F5D8DA86}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{382C0FBC-886B-450A-BD3F-6D90F5D8DA86}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A5E98170-5DF7-4566-9EB7-B3E1A1DA7FB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A5E98170-5DF7-4566-9EB7-B3E1A1DA7FB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A5E98170-5DF7-4566-9EB7-B3E1A1DA7FB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A5E98170-5DF7-4566-9EB7-B3E1A1DA7FB3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C6EEE39F-F7B3-46FB-9DBA-C29CE361D89B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C6EEE39F-F7B3-46FB-9DBA-C29CE361D89B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C6EEE39F-F7B3-46FB-9DBA-C29CE361D89B}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -10,9 +10,8 @@ namespace ShoppingVilla.Data.Entities.Interface
     {
         Task<IEnumerable<UserLogin>> GetAll();
         Task<UserLogin> Get(int id);
-        Task<IEnumerable<UserLogin>> GetByEmail(string email);
         Task<IEnumerable<UserLogin>> GetByUserName(string userName);
-        Task<int> Create(UserLogin userLogin);
-        Task<int> Update(UserLogin userLogin);
+        Task<string> Login(UserLogin userLogin);
+        Task<int> Logout(string token);
     }
 }

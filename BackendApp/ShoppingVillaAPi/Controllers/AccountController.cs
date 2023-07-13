@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using ShoppingVilla.Business.Account;
 using ShoppingVilla.Data.Entities;
 using ShoppingVilla.Data.Entities.Interface;
 using ShoppingVilla.Data.Entities.UnitOfWork;

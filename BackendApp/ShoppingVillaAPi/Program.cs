@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
-using ShoppingVilla.Business.Account;
 using ShoppingVilla.Data.Data;
 using ShoppingVilla.Data.Entities.Interface;
 using ShoppingVilla.Data.Entities.UnitOfWork;

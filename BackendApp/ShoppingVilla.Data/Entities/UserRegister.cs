@@ -10,7 +10,8 @@ namespace ShoppingVilla.Data.Entities
 {
     public class UserRegister
     {
-        
+        private DateTime _currentDt= DateTime.Now;
+
         [DatabaseGenerated(DatabaseGeneratedOption.Identity),Key()]
         public int Id { get; set; }
         [MinLength(5)]
@@ -26,6 +27,15 @@ namespace ShoppingVilla.Data.Entities
         public string? Password { get; set; }
         [Required(ErrorMessage = "Confirm Password is required")]
         public string? ConfirmPassword { get; set; }
+        public DateTime CreatedDate { 
+            get
+            {
+                return _currentDt;
+            }
+            set { 
+                _currentDt = value;
+            } 
+        }
 
     }
 }
