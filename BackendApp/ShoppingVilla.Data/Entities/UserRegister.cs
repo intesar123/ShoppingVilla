@@ -11,6 +11,7 @@ namespace ShoppingVilla.Data.Entities
     public class UserRegister
     {
         private DateTime _currentDt= DateTime.Now;
+        private bool _isActive=true;
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity),Key()]
         public int Id { get; set; }
@@ -23,6 +24,9 @@ namespace ShoppingVilla.Data.Entities
         [EmailAddress]
         [Required(ErrorMessage = "Email is required")]
         public string? Email { get; set; }
+        [MinLength(10),MaxLength(10)]
+        [Required(ErrorMessage = "Mobile Number is required")]
+        public string? Mobile { get; set; }
         [Required(ErrorMessage = "Password is required")]
         public string? Password { get; set; }
         [Required(ErrorMessage = "Confirm Password is required")]
@@ -36,6 +40,15 @@ namespace ShoppingVilla.Data.Entities
                 _currentDt = value;
             } 
         }
+        public bool IsActive { 
+            get {
+                return _isActive;
+            } 
+            set
+            {
+                _isActive = value;
+            }
+        } 
 
     }
 }
