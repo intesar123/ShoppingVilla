@@ -1239,12 +1239,23 @@
           }
         }
       },
+      "ShoppingVilla.Common/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/ShoppingVilla.Common.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ShoppingVilla.Common.dll": {}
+        }
+      },
       "ShoppingVilla.Data/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "7.0.8",
-          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.8"
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.8",
+          "ShoppingVilla.Common": "1.0.0"
         },
         "compile": {
           "bin/placeholder/ShoppingVilla.Data.dll": {}
@@ -3922,6 +3933,11 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "ShoppingVilla.Common/1.0.0": {
+      "type": "project",
+      "path": "../ShoppingVilla.Common/ShoppingVilla.Common.csproj",
+      "msbuildProject": "../ShoppingVilla.Common/ShoppingVilla.Common.csproj"
     },
     "ShoppingVilla.Data/1.0.0": {
       "type": "project",

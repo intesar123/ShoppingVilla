@@ -28,8 +28,11 @@ namespace ShoppingVilla.Data.Entities
         [Required(ErrorMessage = "Mobile Number is required")]
         public string? Mobile { get; set; }
         [Required(ErrorMessage = "Password is required")]
+        [DataType(DataType.Password)]
         public string? Password { get; set; }
         [Required(ErrorMessage = "Confirm Password is required")]
+        [DataType(DataType.Password)]
+        [Compare("Password",ErrorMessage ="Confirm password must match with password")]
         public string? ConfirmPassword { get; set; }
         public DateTime CreatedDate { 
             get
