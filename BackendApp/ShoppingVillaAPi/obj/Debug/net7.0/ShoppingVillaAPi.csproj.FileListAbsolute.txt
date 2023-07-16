@@ -78,3 +78,4 @@ D:\Projects\ShoppingVilla\ShoppingVilla\BackendApp\ShoppingVillaAPi\obj\Debug\ne
 D:\Projects\ShoppingVilla\ShoppingVilla\BackendApp\ShoppingVillaAPi\obj\Debug\net7.0\ref\ShoppingVillaAPi.dll
 D:\Projects\ShoppingVilla\ShoppingVilla\BackendApp\ShoppingVillaAPi\bin\Debug\net7.0\ShoppingVilla.Common.dll
 D:\Projects\ShoppingVilla\ShoppingVilla\BackendApp\ShoppingVillaAPi\bin\Debug\net7.0\ShoppingVilla.Common.pdb
+D:\Projects\ShoppingVilla\ShoppingVilla\BackendApp\ShoppingVillaAPi\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

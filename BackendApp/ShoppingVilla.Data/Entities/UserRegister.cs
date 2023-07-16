@@ -51,7 +51,8 @@ namespace ShoppingVilla.Data.Entities
             {
                 _isActive = value;
             }
-        } 
+        }
+        public string Role { get; set; }
 
     }
 }

@@ -53,5 +53,12 @@ namespace ShoppingVillaAPi.Controllers
             var result =await _unitOfWork.SaveChangesAsync();
             return Ok(result);
         }
+        [HttpPost]
+        public async Task<IActionResult> Login([FromBody] UserLogin user)
+        {
+            var userData =_unitOfWork.userLoginRepository.Login(user);
+            //var result = await _unitOfWork.SaveChangesAsync();
+            return Ok( new { Token = userData.Result.Token });
+        }
     }
 }

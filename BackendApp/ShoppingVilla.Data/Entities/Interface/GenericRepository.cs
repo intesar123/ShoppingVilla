@@ -36,6 +36,16 @@ namespace ShoppingVilla.Data.Entities.Interface
             return await _context.Set<T>().FindAsync(Id);
         }
 
+        public async virtual Task<T> Login(T entity)
+        {
+            return  await _context.Set<T>().FindAsync("");
+        }
+
+        public Task<int> Logout(string token)
+        {
+            throw new NotImplementedException();
+        }
+
         public virtual void UpdateAsync(T entity)
         {
             _context.Set<T>().Update(entity);

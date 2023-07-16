@@ -13,5 +13,7 @@ namespace ShoppingVilla.Data.Entities.Interface
         void CreateAsync(T entity);
         void UpdateAsync(T entity);
         void DeleteAsync(T entity);
+        Task<T> Login(T entity);
+        Task<int> Logout(string token);
     }
 }

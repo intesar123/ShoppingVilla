@@ -12,10 +12,14 @@ namespace ShoppingVilla.Data.Entities.UnitOfWork
     {
         private readonly ApplicationContext _context;
         public IUserRegisterRepository userRegisterRepository { get; private set; }
+
+        public IUserLoginRepository userLoginRepository { get; private set; }
+
         public UnitOfWork(ApplicationContext context)
         {
                 _context = context;
                 userRegisterRepository = new UserRegisterRepository(_context);
+               userLoginRepository = new UserLoginRepository(_context);
         }
 
         public async Task<int> SaveChangesAsync()

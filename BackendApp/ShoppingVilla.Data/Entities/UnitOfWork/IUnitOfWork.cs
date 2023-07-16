@@ -12,6 +12,7 @@ namespace ShoppingVilla.Data.Entities.UnitOfWork
     public interface IUnitOfWork: IDisposable
     {
         IUserRegisterRepository userRegisterRepository { get; }
+        IUserLoginRepository userLoginRepository { get; }
         Task<int> SaveChangesAsync();
 
     }
