@@ -2,7 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using ShoppingVilla.Data.Entities;
 using ShoppingVilla.Data.Entities.Interface;
+using ShoppingVilla.Data.Entities.Models;
 using ShoppingVilla.Data.Entities.UnitOfWork;
+using System.Formats.Asn1;
 
 namespace ShoppingVillaAPi.Controllers
 {
@@ -36,7 +38,7 @@ namespace ShoppingVillaAPi.Controllers
              _unitOfWork.userRegisterRepository.CreateAsync(user);
             var result=  await _unitOfWork.SaveChangesAsync();
             return Ok(result);
-        }
+        }                               
 
         [HttpPut]
         public async Task<IActionResult> Update([FromBody] UserRegister user)
@@ -56,9 +58,46 @@ namespace ShoppingVillaAPi.Controllers
         [HttpPost]
         public async Task<IActionResult> Login([FromBody] UserLogin user)
         {
-            var userData =_unitOfWork.userLoginRepository.Login(user);
+            var Token =_unitOfWork.userLoginRepository.Login(user);
             //var result = await _unitOfWork.SaveChangesAsync();
-            return Ok( new { Token = userData.Result.Token });
+            return Ok( new { Token = Token.Result });
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddRole([FromBody] Role role)
+        {
+            _unitOfWork.roleRepository.CreateAsync(role);
+            var result= await _unitOfWork.SaveChangesAsync();
+            return Ok(result);
+        }
+
+        [HttpGet]
+        public  async Task<IActionResult> Roles()
+        {
+            var roles= await _unitOfWork.roleRepository.GetAllAsync();
+            return Ok(roles);
+        }
+        [HttpPut]
+        public async Task<IActionResult> UpdateRole([FromBody] Role role)
+        {
+            _unitOfWork.roleRepository.UpdateAsync(role);
+            var result= await _unitOfWork.SaveChangesAsync();
+            return Ok(result);
+        }
+        [HttpGet]
+        public async Task<IActionResult> GetRole(int Id)
+        {
+            var role=await _unitOfWork.roleRepository.GetByIdAsync(Id);
+            return Ok(role);
+        }
+        [HttpDelete]
+        public async Task<IActionResult> DeleteRole(int Id)
+        {
+            var role =await _unitOfWork.roleRepository.GetByIdAsync(Id);
+            _unitOfWork.roleRepository.DeleteAsync(role);
+            var result= await _unitOfWork.SaveChangesAsync();
+            return Ok(result);
+
         }
     }
 }

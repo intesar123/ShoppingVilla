@@ -12,23 +12,24 @@ using System.Threading.Tasks;
 
 namespace ShoppingVilla.Data.Entities.Interface
 {
-    public class UserLoginRepository : GenericRepository<UserLogin>,IUserLoginRepository
+    public class UserLoginRepository :IUserLoginRepository
     {
-        public UserLoginRepository(ApplicationContext context):base(context)
+        public readonly ApplicationContext _context;
+        public UserLoginRepository(ApplicationContext context)
         {
-            
+            _context = context;
         }
         public Task<UserLogin> Get(int id)
         {
             throw new NotImplementedException();
         }
 
-        public override Task<UserLogin> Login(UserLogin userLogin)
+        public  Task<string> Login(UserLogin userLogin)
         {
             var user = _context.userRegister.Where(x=>x.UserName == userLogin.UserName && x.Password==DataEncrypt.Encrypt(userLogin.Password)).FirstOrDefault();
             if(user == null)
             {
-                 return Task.Run(() =>userLogin);
+                 return Task.Run(() =>string.Empty);
             }
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(JwtUtility.Key);
@@ -38,7 +39,10 @@ namespace ShoppingVilla.Data.Entities.Interface
                 Subject = new ClaimsIdentity(new Claim[]
                 {
                     new Claim(ClaimTypes.Name, user.UserName),
-                    new Claim(ClaimTypes.Role, user.Role)
+                    new Claim(ClaimTypes.Role, user.RoleName),
+                    new Claim(ClaimTypes.GivenName, user.Name),
+                    new Claim(ClaimTypes.Sid, user.Id.ToString()),
+
                 }),
 
                 Expires = DateTime.UtcNow.AddMinutes(5),
@@ -46,9 +50,8 @@ namespace ShoppingVilla.Data.Entities.Interface
             };
 
             var token = tokenHandler.CreateToken(tokenDescriptor);
-            userLogin.Token = tokenHandler.WriteToken(token);
-
-            return  Task.Run(() => userLogin);
+             
+            return  Task.Run(() => tokenHandler.WriteToken(token));
          }
 
         public Task<int> Logout(string token)

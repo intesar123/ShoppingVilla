@@ -4,7 +4,9 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace ShoppingVilla.Data.Entities
 {
@@ -19,6 +21,8 @@ namespace ShoppingVilla.Data.Entities
         public string? Token { get; set; }
         [ForeignKey("UserRegister")]
         public int UserId { get; set; }
+        [JsonIgnore]
+        [XmlIgnore]
         public UserRegister? UserRegister { get; set; }
         public DateTime LoginTime { get; set; }
         public DateTime LogoutTime { get; set; }

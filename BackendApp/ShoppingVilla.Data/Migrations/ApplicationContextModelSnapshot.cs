@@ -22,6 +22,33 @@ namespace ShoppingVilla.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("ShoppingVilla.Data.Entities.Models.Role", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
+
+                    b.ToTable("roles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "ADMIN"
+                        });
+                });
+
             modelBuilder.Entity("ShoppingVilla.Data.Entities.UserLogin", b =>
                 {
                     b.Property<int>("Id")
@@ -41,7 +68,6 @@ namespace ShoppingVilla.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Token")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("UserId")
@@ -91,9 +117,9 @@ namespace ShoppingVilla.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Role")
+                    b.Property<string>("RoleName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("UserName")
                         .IsRequired()
@@ -104,10 +130,28 @@ namespace ShoppingVilla.Data.Migrations
                     b.HasIndex("Email")
                         .IsUnique();
 
+                    b.HasIndex("RoleName")
+                        .IsUnique();
+
                     b.HasIndex("UserName")
                         .IsUnique();
 
                     b.ToTable("userRegister");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ConfirmPassword = "0rp0sI3+yuqj7fHLvG0ZYg==",
+                            CreatedDate = new DateTime(2023, 7, 18, 22, 44, 21, 211, DateTimeKind.Local).AddTicks(9787),
+                            Email = "",
+                            IsActive = true,
+                            Mobile = "",
+                            Name = "Admin",
+                            Password = "0rp0sI3+yuqj7fHLvG0ZYg==",
+                            RoleName = "ADMIN",
+                            UserName = "admin"
+                        });
                 });
 
             modelBuilder.Entity("ShoppingVilla.Data.Entities.UserLogin", b =>
@@ -118,6 +162,23 @@ namespace ShoppingVilla.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.Navigation("UserRegister");
+                });
+
+            modelBuilder.Entity("ShoppingVilla.Data.Entities.UserRegister", b =>
+                {
+                    b.HasOne("ShoppingVilla.Data.Entities.Models.Role", "Role")
+                        .WithOne("UserRegister")
+                        .HasForeignKey("ShoppingVilla.Data.Entities.UserRegister", "RoleName")
+                        .HasPrincipalKey("ShoppingVilla.Data.Entities.Models.Role", "Name")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Role");
+                });
+
+            modelBuilder.Entity("ShoppingVilla.Data.Entities.Models.Role", b =>
+                {
                     b.Navigation("UserRegister");
                 });
 #pragma warning restore 612, 618

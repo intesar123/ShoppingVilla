@@ -13,6 +13,7 @@ namespace ShoppingVilla.Data.Entities.UnitOfWork
     {
         IUserRegisterRepository userRegisterRepository { get; }
         IUserLoginRepository userLoginRepository { get; }
+        IRoleRepository roleRepository { get; }
         Task<int> SaveChangesAsync();
 
     }

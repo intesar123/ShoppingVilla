@@ -15,16 +15,19 @@ namespace ShoppingVilla.Data.Entities.UnitOfWork
 
         public IUserLoginRepository userLoginRepository { get; private set; }
 
+        public IRoleRepository roleRepository { get; private set; }
+
         public UnitOfWork(ApplicationContext context)
         {
-                _context = context;
-                userRegisterRepository = new UserRegisterRepository(_context);
-               userLoginRepository = new UserLoginRepository(_context);
+            _context = context;
+            userRegisterRepository = new UserRegisterRepository(_context);
+            userLoginRepository = new UserLoginRepository(_context);
+            roleRepository = new RoleRepository(_context);
         }
 
         public async Task<int> SaveChangesAsync()
         {
-           return await _context.SaveChangesAsync();
+            return await _context.SaveChangesAsync();
         }
 
         public void Dispose()

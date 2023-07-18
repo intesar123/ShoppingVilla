@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ShoppingVilla.Data.Entities.Interface
 {
-    public interface IUserRegisterRepository: IGenericRepository<UserRegister>
+    public interface IUserRegisterRepository
     {
         Task<List<UserRegister>> GetAllAsync();
         Task<UserRegister> GetByIdAsync(int id);
