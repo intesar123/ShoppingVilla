@@ -1,5 +1,6 @@
 ﻿using ShoppingVilla.Data.Data;
 using ShoppingVilla.Data.Entities.Interface;
+using ShoppingVilla.Data.Entities.Interface.Dashboard;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,12 +18,18 @@ namespace ShoppingVilla.Data.Entities.UnitOfWork
 
         public IRoleRepository roleRepository { get; private set; }
 
+        public IModuleRepository moduleRepository { get; private set; }
+
+        public IMenuRepository menuRepository { get; private set; }
+
         public UnitOfWork(ApplicationContext context)
         {
             _context = context;
             userRegisterRepository = new UserRegisterRepository(_context);
             userLoginRepository = new UserLoginRepository(_context);
             roleRepository = new RoleRepository(_context);
+            moduleRepository = new ModuleRepository(_context);
+            menuRepository = new MenuRepository(_context);
         }
 
         public async Task<int> SaveChangesAsync()

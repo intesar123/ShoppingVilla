@@ -20,7 +20,7 @@ namespace ShoppingVilla.Data.Entities.Models.Dashboard
         public int ModuleId { get; set; }
         [JsonIgnore]
         [XmlIgnore]
-        public virtual Module Module { get; set; }
+        public virtual Module? Module { get; set; }
 
     }
 }

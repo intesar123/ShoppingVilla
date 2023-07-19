@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ShoppingVilla.Data.Entities;
 using ShoppingVilla.Data.Entities.Models;
+using ShoppingVilla.Data.Entities.Models.Dashboard;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +12,16 @@ namespace ShoppingVilla.Data.Data
 {
     public class ApplicationContext: DbContext
     {
+        #region Account
         public DbSet<UserLogin> userLogins { get; set; }
         public DbSet<UserRegister> userRegister { get; set; }
         public DbSet<Role> roles { get; set; }
+        #endregion
+
+        #region Dashboard
+        public DbSet<Module> modules { get; set; }
+        public DbSet<Menu> menu { get; set; }
+        #endregion
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {
 
