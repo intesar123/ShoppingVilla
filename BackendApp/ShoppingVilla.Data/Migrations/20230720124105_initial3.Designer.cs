@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ShoppingVilla.Data.Data;
 
@@ -11,9 +12,11 @@ using ShoppingVilla.Data.Data;
 namespace ShoppingVilla.Data.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20230720124105_initial3")]
+    partial class initial3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -61,20 +64,6 @@ namespace ShoppingVilla.Data.Migrations
                             Alias = "edit_user",
                             ModuleId = 1,
                             Name = "Edit User"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Alias = "roles",
-                            ModuleId = 1,
-                            Name = "Roles"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Alias = "add_role",
-                            ModuleId = 1,
-                            Name = "Add Role"
                         });
                 });
 
@@ -237,7 +226,7 @@ namespace ShoppingVilla.Data.Migrations
                         {
                             Id = 1,
                             ConfirmPassword = "0rp0sI3+yuqj7fHLvG0ZYg==",
-                            CreatedDate = new DateTime(2023, 7, 20, 18, 14, 2, 970, DateTimeKind.Local).AddTicks(7341),
+                            CreatedDate = new DateTime(2023, 7, 20, 18, 11, 5, 460, DateTimeKind.Local).AddTicks(3916),
                             Email = "",
                             IsActive = true,
                             Mobile = "",

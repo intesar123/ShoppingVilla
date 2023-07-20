@@ -60,24 +60,7 @@ namespace ShoppingVilla.Data.Data
             #endregion
 
             #region Data Seed
-            builder.Entity<Role>().HasData(new Role
-            {
-                Id= 1,
-                Name="ADMIN"
-            });
-
-            builder.Entity<UserRegister>().HasData(new UserRegister
-            {
-                Id = 1,
-                Name="Admin",
-                UserName="admin",
-                Email="",
-                Password= "0rp0sI3+yuqj7fHLvG0ZYg==",
-                ConfirmPassword= "0rp0sI3+yuqj7fHLvG0ZYg==",
-                Mobile="",
-                RoleName="ADMIN"
-            });
-
+            builder.Seed();
             #endregion
 
 
