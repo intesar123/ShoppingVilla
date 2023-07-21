@@ -23,11 +23,13 @@ builder.Services.AddSwaggerGen();
 #region Cors
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy(MyAllowSpecificOrigins,
-                 builder =>
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+                 policy =>
                  {
                      //builder.WithOrigins("http://localhost:4200", "http://192.168.137.1").AllowAnyHeader().AllowAnyMethod();
-                     builder.WithOrigins("*").AllowAnyHeader().AllowAnyMethod();
+                     policy.WithOrigins("*");
+                     policy.AllowAnyHeader();
+                     policy.AllowAnyMethod();
 
                  });
 });
@@ -42,14 +44,15 @@ builder.Services.AddAuthentication(x =>
     x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
     x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 }
-    ).AddJwtBearer(x => {
-        x.RequireHttpsMetadata = true;
+    ).AddJwtBearer(x =>
+    {
+        x.RequireHttpsMetadata = false;
         x.SaveToken = true;
         x.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateIssuerSigningKey = true,
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key)),
-            ValidIssuer = issuer,
+            ValidateIssuer = false,
             ValidateAudience = false,
         };
     });
@@ -76,11 +79,10 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseCors(MyAllowSpecificOrigins);
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
-
-app.UseCors(MyAllowSpecificOrigins);
 
 app.Run();

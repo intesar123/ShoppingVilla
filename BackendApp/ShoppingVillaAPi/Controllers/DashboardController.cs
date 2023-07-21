@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using ShoppingVilla.Data.Entities.Models.Dashboard;
@@ -6,6 +7,7 @@ using ShoppingVilla.Data.Entities.UnitOfWork;
 
 namespace ShoppingVillaAPi.Controllers
 {
+    
     [Route("api/Dashboard/[action]")]
     [ApiController]
     public class DashboardController : ControllerBase
@@ -18,6 +20,7 @@ namespace ShoppingVillaAPi.Controllers
 
 
         #region Modules
+        [Authorize]
         [HttpGet]
         public async Task<IActionResult> GetModules()
         {
@@ -88,6 +91,14 @@ namespace ShoppingVillaAPi.Controllers
             var menu= await _unitOfWork.menuRepository.GetByIdAsync(Id);
             return Ok(menu);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> GetUser(int Id)
+        {
+            var user = await _unitOfWork.userRegisterRepository.GetByIdAsync(Id);
+            return Ok(user);
+        }
+
         #endregion
 
     }

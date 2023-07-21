@@ -35,7 +35,7 @@ namespace ShoppingVilla.Data.Data
             builder.Entity<Module>().HasData(
                 new Module { Id=1, Name="User Settings", Alias="user_settings", IsActive=true },
                 new Module { Id=2, Name="Masters", Alias="masters", IsActive=true}
-                );
+                );                                  
 
             builder.Entity<Menu>().HasData(
                 new Menu { Id=1,Name="Users", Alias="users",ModuleId=1},

@@ -24,12 +24,12 @@ namespace ShoppingVilla.Data.Entities.Interface
             throw new NotImplementedException();
         }
 
-        public  Task<string> Login(UserLogin userLogin)
+        public  Task<UserLogin> Login(UserLogin userLogin)
         {
             var user = _context.userRegister.Where(x=>x.UserName == userLogin.UserName && x.Password==DataEncrypt.Encrypt(userLogin.Password)).FirstOrDefault();
             if(user == null)
             {
-                 return Task.Run(() =>string.Empty);
+                 return Task.Run(() => new UserLogin());
             }
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(JwtUtility.Key);
@@ -45,13 +45,14 @@ namespace ShoppingVilla.Data.Entities.Interface
 
                 }),
 
-                Expires = DateTime.UtcNow.AddMinutes(5),
+                Expires = DateTime.UtcNow.AddMinutes(30),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
 
             var token = tokenHandler.CreateToken(tokenDescriptor);
-             
-            return  Task.Run(() => tokenHandler.WriteToken(token));
+            userLogin.Token = tokenHandler.WriteToken(token);
+            userLogin.UserId = user.Id;
+            return  Task.Run(() => userLogin);
          }
 
         public Task<int> Logout(string token)

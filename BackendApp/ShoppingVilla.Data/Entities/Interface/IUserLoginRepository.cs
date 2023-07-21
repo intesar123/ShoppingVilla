@@ -9,7 +9,7 @@ namespace ShoppingVilla.Data.Entities.Interface
     public interface IUserLoginRepository
     {
         Task<UserLogin> Get(int id);
-        Task<string> Login(UserLogin userLogin);
+        Task<UserLogin> Login(UserLogin userLogin);
         Task<int> Logout(string token);
     }
 }

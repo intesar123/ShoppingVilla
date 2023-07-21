@@ -5,6 +5,7 @@ using ShoppingVilla.Data.Entities.Interface;
 using ShoppingVilla.Data.Entities.Models;
 using ShoppingVilla.Data.Entities.UnitOfWork;
 using System.Formats.Asn1;
+using System.Linq;
 
 namespace ShoppingVillaAPi.Controllers
 {
@@ -58,9 +59,9 @@ namespace ShoppingVillaAPi.Controllers
         [HttpPost]
         public async Task<IActionResult> Login([FromBody] UserLogin user)
         {
-            var Token =_unitOfWork.userLoginRepository.Login(user);
+            var userLogin =_unitOfWork.userLoginRepository.Login(user);
             //var result = await _unitOfWork.SaveChangesAsync();
-            return Ok( new { Token = Token.Result });
+            return Ok( new { Token = userLogin.Result.Token, UserId=userLogin.Result.UserId });
         }
 
         [HttpPost]
