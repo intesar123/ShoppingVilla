@@ -64,6 +64,14 @@ namespace ShoppingVillaAPi.Controllers
             return Ok( new { Token = userLogin.Result.Token, UserId=userLogin.Result.UserId });
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Logout(string Token)
+        {
+            _unitOfWork.userLoginRepository.Logout(Token);
+            //var result = await _unitOfWork.SaveChangesAsync();
+            return Ok();
+        }
+
         [HttpPost]
         public async Task<IActionResult> AddRole([FromBody] Role role)
         {

@@ -31,11 +31,11 @@ namespace ShoppingVilla.Data.Entities
         [MinLength(10), MaxLength(10)]
         [Required(ErrorMessage = "Mobile Number is required")]
         public string? Mobile { get; set; }
-        [JsonIgnore]
+        
         [Required(ErrorMessage = "Password is required")]
         [DataType(DataType.Password)]
         public string? Password { get; set; }
-        [JsonIgnore]
+       
         [Required(ErrorMessage = "Confirm Password is required")]
         [DataType(DataType.Password)]
         [Compare("Password", ErrorMessage = "Confirm password must match with password")]

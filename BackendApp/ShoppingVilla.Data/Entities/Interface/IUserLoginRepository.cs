@@ -10,6 +10,6 @@ namespace ShoppingVilla.Data.Entities.Interface
     {
         Task<UserLogin> Get(int id);
         Task<UserLogin> Login(UserLogin userLogin);
-        Task<int> Logout(string token);
+        void Logout(string token);
     }
 }

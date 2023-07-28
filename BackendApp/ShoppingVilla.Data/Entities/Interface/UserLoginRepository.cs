@@ -55,9 +55,15 @@ namespace ShoppingVilla.Data.Entities.Interface
             return  Task.Run(() => userLogin);
          }
 
-        public Task<int> Logout(string token)
+        public void Logout(string token)
         {
-            throw new NotImplementedException();
+            var handler = new JwtSecurityTokenHandler();
+            var info= handler.ReadJwtToken(token);
+
+            if (info != null)
+            {
+                var claims = info.Claims;
+            }
         }
     }
 }

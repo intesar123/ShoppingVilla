@@ -59,6 +59,7 @@ namespace ShoppingVillaAPi.Controllers
 
         #region Menu
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> GetMenus()
         {
             var menus= await _unitOfWork.menuRepository.GetAllAsync();
