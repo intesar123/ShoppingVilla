@@ -30,10 +30,10 @@ namespace ShoppingVilla.Data.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            builder.Entity<UserLogin>(ul =>
-            {
-                ul.HasNoKey();
-            });
+            //builder.Entity<UserLogin>(ul =>
+            //{
+            //    ul.HasNoKey();
+            //});
 
             #region for single unique key
             builder.Entity<UserRegister>(r =>

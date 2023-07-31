@@ -140,6 +140,11 @@ namespace ShoppingVilla.Data.Migrations
                         {
                             Id = 1,
                             Name = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "USER"
                         });
                 });
 
@@ -170,6 +175,8 @@ namespace ShoppingVilla.Data.Migrations
                     b.Property<string>("UserName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
 
                     b.HasIndex("UserId");
 
@@ -237,7 +244,7 @@ namespace ShoppingVilla.Data.Migrations
                         {
                             Id = 1,
                             ConfirmPassword = "0rp0sI3+yuqj7fHLvG0ZYg==",
-                            CreatedDate = new DateTime(2023, 7, 20, 18, 14, 2, 970, DateTimeKind.Local).AddTicks(7341),
+                            CreatedDate = new DateTime(2023, 7, 31, 13, 51, 5, 386, DateTimeKind.Local).AddTicks(676),
                             Email = "",
                             IsActive = true,
                             Mobile = "",

@@ -24,7 +24,7 @@ namespace ShoppingVilla.Data.Entities.UnitOfWork
 
         public UnitOfWork(ApplicationContext context)
         {
-            _context = context;
+            _context = context;         
             userRegisterRepository = new UserRegisterRepository(_context);
             userLoginRepository = new UserLoginRepository(_context);
             roleRepository = new RoleRepository(_context);

@@ -21,6 +21,10 @@ namespace ShoppingVilla.Data.Entities.Interface
         {
             if (userRegister != null)
             {
+                if (string.IsNullOrEmpty(userRegister.RoleName))
+                {
+                    userRegister.RoleName= "USER";
+                }
                 userRegister.Password = DataEncrypt.Encrypt(userRegister.Password);
                 userRegister.ConfirmPassword = DataEncrypt.Encrypt(userRegister.ConfirmPassword);
             }

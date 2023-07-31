@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ShoppingVilla.Data.Entities;
 using ShoppingVilla.Data.Entities.Interface;
@@ -21,6 +22,7 @@ namespace ShoppingVillaAPi.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> GetAll()
         {
             var users= await _unitOfWork.userRegisterRepository.GetAllAsync();
@@ -60,16 +62,21 @@ namespace ShoppingVillaAPi.Controllers
         public async Task<IActionResult> Login([FromBody] UserLogin user)
         {
             var userLogin =_unitOfWork.userLoginRepository.Login(user);
-            //var result = await _unitOfWork.SaveChangesAsync();
+            var result = await _unitOfWork.SaveChangesAsync();
+            if (result != 1)
+            {
+                return BadRequest();
+            }
             return Ok( new { Token = userLogin.Result.Token, UserId=userLogin.Result.UserId });
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> Logout(string Token)
         {
             _unitOfWork.userLoginRepository.Logout(Token);
-            //var result = await _unitOfWork.SaveChangesAsync();
-            return Ok();
+            var result = await _unitOfWork.SaveChangesAsync();
+            return Ok(result);
         }
 
         [HttpPost]

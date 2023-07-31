@@ -26,7 +26,7 @@ namespace ShoppingVilla.Data.Entities.Interface
 
         public  Task<UserLogin> Login(UserLogin userLogin)
         {
-            var user = _context.userRegister.Where(x=>x.UserName == userLogin.UserName && x.Password==DataEncrypt.Encrypt(userLogin.Password)).FirstOrDefault();
+            var user = _context.userRegister.Where(x=>x.UserName == userLogin.UserName && x.Password==DataEncrypt.Encrypt(userLogin.Password) && x.IsActive==true).FirstOrDefault();
             if(user == null)
             {
                  return Task.Run(() => new UserLogin());
@@ -52,6 +52,9 @@ namespace ShoppingVilla.Data.Entities.Interface
             var token = tokenHandler.CreateToken(tokenDescriptor);
             userLogin.Token = tokenHandler.WriteToken(token);
             userLogin.UserId = user.Id;
+            userLogin.LoginTime = DateTime.UtcNow;
+            userLogin.Password = "";
+            _context.userLogins.Add(userLogin);
             return  Task.Run(() => userLogin);
          }
 
@@ -59,10 +62,15 @@ namespace ShoppingVilla.Data.Entities.Interface
         {
             var handler = new JwtSecurityTokenHandler();
             var info= handler.ReadJwtToken(token);
-
             if (info != null)
             {
-                var claims = info.Claims;
+                var id = info.Claims.SingleOrDefault(p => p.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/sid")?.Value;
+                var userLogin = _context.userLogins.Where(x => x.Token == token && x.UserId==Convert.ToInt32(id)).FirstOrDefault();
+                if (userLogin != null)
+                {
+                    userLogin.LogoutTime = DateTime.UtcNow;
+                    _context.userLogins.Update(userLogin);
+                }
             }
         }
     }

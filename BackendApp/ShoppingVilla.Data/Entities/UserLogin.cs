@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
@@ -12,7 +13,9 @@ namespace ShoppingVilla.Data.Entities
 {
     public class UserLogin
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity),Key()]
+        private DateTime _currentDt = DateTime.Now;
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         [Required(ErrorMessage ="User Name is required")]
         public string? UserName { get; set; }
