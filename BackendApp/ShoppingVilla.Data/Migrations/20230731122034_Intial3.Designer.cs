@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ShoppingVilla.Data.Data;
 
@@ -11,9 +12,11 @@ using ShoppingVilla.Data.Data;
 namespace ShoppingVilla.Data.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20230731122034_Intial3")]
+    partial class Intial3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -60,7 +63,7 @@ namespace ShoppingVilla.Data.Migrations
                             Id = 2,
                             Alias = "edit_user",
                             ModuleId = 1,
-                            Name = "Add User"
+                            Name = "Edit User"
                         },
                         new
                         {
@@ -231,8 +234,6 @@ namespace ShoppingVilla.Data.Migrations
                     b.HasIndex("Email")
                         .IsUnique();
 
-                    b.HasIndex("RoleName");
-
                     b.HasIndex("UserName")
                         .IsUnique();
 
@@ -243,7 +244,7 @@ namespace ShoppingVilla.Data.Migrations
                         {
                             Id = 1,
                             ConfirmPassword = "0rp0sI3+yuqj7fHLvG0ZYg==",
-                            CreatedDate = new DateTime(2023, 7, 31, 23, 42, 7, 671, DateTimeKind.Local).AddTicks(9524),
+                            CreatedDate = new DateTime(2023, 7, 31, 17, 50, 34, 432, DateTimeKind.Local).AddTicks(9593),
                             Email = "",
                             IsActive = true,
                             Mobile = "",
@@ -265,6 +266,18 @@ namespace ShoppingVilla.Data.Migrations
                     b.Navigation("Module");
                 });
 
+            modelBuilder.Entity("ShoppingVilla.Data.Entities.Models.Role", b =>
+                {
+                    b.HasOne("ShoppingVilla.Data.Entities.UserRegister", "UserRegister")
+                        .WithMany("Role")
+                        .HasForeignKey("Name")
+                        .HasPrincipalKey("RoleName")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("UserRegister");
+                });
+
             modelBuilder.Entity("ShoppingVilla.Data.Entities.UserLogin", b =>
                 {
                     b.HasOne("ShoppingVilla.Data.Entities.UserRegister", "UserRegister")
@@ -278,19 +291,7 @@ namespace ShoppingVilla.Data.Migrations
 
             modelBuilder.Entity("ShoppingVilla.Data.Entities.UserRegister", b =>
                 {
-                    b.HasOne("ShoppingVilla.Data.Entities.Models.Role", "Role")
-                        .WithMany("UserRegister")
-                        .HasForeignKey("RoleName")
-                        .HasPrincipalKey("Name")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Role");
-                });
-
-            modelBuilder.Entity("ShoppingVilla.Data.Entities.Models.Role", b =>
-                {
-                    b.Navigation("UserRegister");
                 });
 #pragma warning restore 612, 618
         }

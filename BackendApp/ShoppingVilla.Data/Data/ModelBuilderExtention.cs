@@ -46,7 +46,7 @@ namespace ShoppingVilla.Data.Data
 
             builder.Entity<Menu>().HasData(
                 new Menu { Id = 1, Name = "Users", Alias = "users", ModuleId = 1 },
-                new Menu { Id = 2, Name = "Edit User", Alias = "edit_user", ModuleId = 1 },
+                new Menu { Id = 2, Name = "Add User", Alias = "edit_user", ModuleId = 1 },
                 new Menu { Id = 3, Name = "Roles", Alias = "roles", ModuleId = 1 },
                 new Menu { Id = 4, Name = "Add Role", Alias = "add_role", ModuleId = 1 }
                 );

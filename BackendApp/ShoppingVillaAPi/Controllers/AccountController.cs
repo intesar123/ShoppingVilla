@@ -38,7 +38,14 @@ namespace ShoppingVillaAPi.Controllers
         [HttpPost]
         public async Task<IActionResult> Register([FromBody] UserRegister user)
         {
-             _unitOfWork.userRegisterRepository.CreateAsync(user);
+            if (user.Id==0)
+            {
+                _unitOfWork.userRegisterRepository.CreateAsync(user);
+            }
+            else
+            {
+                _unitOfWork.userRegisterRepository.UpdateAsync(user);
+            }
             var result=  await _unitOfWork.SaveChangesAsync();
             return Ok(result);
         }                               
@@ -88,6 +95,7 @@ namespace ShoppingVillaAPi.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public  async Task<IActionResult> Roles()
         {
             var roles= await _unitOfWork.roleRepository.GetAllAsync();
@@ -109,8 +117,7 @@ namespace ShoppingVillaAPi.Controllers
         [HttpDelete]
         public async Task<IActionResult> DeleteRole(int Id)
         {
-            var role =await _unitOfWork.roleRepository.GetByIdAsync(Id);
-            _unitOfWork.roleRepository.DeleteAsync(role);
+            _unitOfWork.roleRepository.DeleteAsync(Id);
             var result= await _unitOfWork.SaveChangesAsync();
             return Ok(result);
 

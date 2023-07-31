@@ -40,6 +40,11 @@ namespace ShoppingVilla.Data.Entities.Interface.Dashboard
             return await _context.menu.FindAsync(id);
         }
 
+        public async Task<List<Menu>> GetByModuleAsync(int ModuleId)
+        {
+            return await _context.menu.Where(x=>x.ModuleId==ModuleId).ToListAsync();
+        }
+
         public void UpdateAsync(Menu menu)
         {
             _context.Update(menu);

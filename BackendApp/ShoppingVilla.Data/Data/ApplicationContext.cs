@@ -40,7 +40,7 @@ namespace ShoppingVilla.Data.Data
             {
                 r.HasIndex(u=>u.Email).IsUnique();
                 r.HasIndex(u => u.UserName).IsUnique();
-                //r.HasOne(u => u.Role).WithOne(r => r.UserRegister).HasPrincipalKey<UserRegister>(r => r.RoleName);
+                r.HasOne(u => u.Role).WithMany(r => r.UserRegister).HasPrincipalKey(r=>r.Name).HasForeignKey(x=>x.RoleName);
             });
 
             //builder.Entity<UserRegister>().HasOne(x=>x.Role).WithMany(x=>x.Roles).HasForeignKey(x=>x.Email);
@@ -48,7 +48,7 @@ namespace ShoppingVilla.Data.Data
             builder.Entity<Role>(r =>
             {
                 r.HasIndex(u => u.Name).IsUnique();
-                r.HasOne(u => u.UserRegister).WithOne(u=> u.Role).HasPrincipalKey<Role>(u => u.Name).HasForeignKey<UserRegister>(u=>u.RoleName);
+                //r.HasOne(u => u.UserRegister).WithOne(u=> u.Role).HasPrincipalKey<Role>(u => u.Name).HasForeignKey<UserRegister>(u=>u.RoleName);
                 /// https://gavilan.blog/2019/04/14/entity-framework-core-foreign-key-linked-with-a-non-primary-key/
 
 

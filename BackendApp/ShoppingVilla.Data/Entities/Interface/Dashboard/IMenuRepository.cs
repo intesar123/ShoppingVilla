@@ -12,6 +12,7 @@ namespace ShoppingVilla.Data.Entities.Interface.Dashboard
     {
         Task<List<Menu>> GetAllAsync();
         Task<Menu> GetByIdAsync(int id);
+        Task<List<Menu>> GetByModuleAsync(int ModuleId);
         void CreateAsync(Menu menu);
         void UpdateAsync(Menu menu);
         void DeleteAsync(int Id);

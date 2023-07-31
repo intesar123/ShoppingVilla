@@ -16,7 +16,8 @@ namespace ShoppingVilla.Data.Entities.Models
     public class Role
     {
         private string _Name = string.Empty;
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity), Key()]
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Name
         {
@@ -31,6 +32,6 @@ namespace ShoppingVilla.Data.Entities.Models
         }
         [JsonIgnore]
         [XmlIgnore]
-        public virtual UserRegister? UserRegister { get; set; }
+        public virtual ICollection<UserRegister>? UserRegister { get; set; }
     }
 }

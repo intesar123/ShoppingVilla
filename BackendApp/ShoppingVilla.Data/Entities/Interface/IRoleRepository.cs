@@ -13,6 +13,6 @@ namespace ShoppingVilla.Data.Entities.Interface
         Task<Role> GetByIdAsync(int id);
         void CreateAsync(Role role);
         void UpdateAsync(Role role);
-        void DeleteAsync(Role role);
+        void DeleteAsync(int id);
     }
 }

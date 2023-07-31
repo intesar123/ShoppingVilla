@@ -22,9 +22,13 @@ namespace ShoppingVilla.Data.Entities.Interface
             _context.roles.AddAsync(role);
         }
 
-        public void DeleteAsync(Role role)
+        public void DeleteAsync(int id)
         {
-            _context.roles.Remove(role);
+            var role = _context.roles.Where(x=>x.Id==id).FirstOrDefault();
+            if(role != null)
+            {
+                _context.roles.Remove(role);
+            }
         }
 
         public async Task<List<Role>> GetAllAsync()

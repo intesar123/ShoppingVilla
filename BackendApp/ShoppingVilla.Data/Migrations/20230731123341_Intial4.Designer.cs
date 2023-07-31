@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ShoppingVilla.Data.Data;
 
@@ -11,9 +12,11 @@ using ShoppingVilla.Data.Data;
 namespace ShoppingVilla.Data.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20230731123341_Intial4")]
+    partial class Intial4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -60,7 +63,7 @@ namespace ShoppingVilla.Data.Migrations
                             Id = 2,
                             Alias = "edit_user",
                             ModuleId = 1,
-                            Name = "Add User"
+                            Name = "Edit User"
                         },
                         new
                         {
@@ -243,7 +246,7 @@ namespace ShoppingVilla.Data.Migrations
                         {
                             Id = 1,
                             ConfirmPassword = "0rp0sI3+yuqj7fHLvG0ZYg==",
-                            CreatedDate = new DateTime(2023, 7, 31, 23, 42, 7, 671, DateTimeKind.Local).AddTicks(9524),
+                            CreatedDate = new DateTime(2023, 7, 31, 18, 3, 41, 297, DateTimeKind.Local).AddTicks(4871),
                             Email = "",
                             IsActive = true,
                             Mobile = "",

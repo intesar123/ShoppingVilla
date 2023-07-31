@@ -65,6 +65,13 @@ namespace ShoppingVillaAPi.Controllers
             var menus= await _unitOfWork.menuRepository.GetAllAsync();
             return Ok(menus);
         }
+        [HttpGet]
+        [Authorize]
+        public async Task<IActionResult> GetMenusByModule(int ModuleId)
+        {
+            var menus = await _unitOfWork.menuRepository.GetByModuleAsync(ModuleId);
+            return Ok(menus);
+        }
         [HttpPost]
         public async Task<IActionResult> CreateMenu([FromBody] Menu menu)
         {
