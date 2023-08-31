@@ -2,7 +2,9 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using ShoppingVilla.Common;
 using ShoppingVilla.Data.Entities.Models.Dashboard;
+using ShoppingVilla.Data.Entities.Models.Dashboard.Products;
 using ShoppingVilla.Data.Entities.UnitOfWork;
 
 namespace ShoppingVillaAPi.Controllers
@@ -101,13 +103,28 @@ namespace ShoppingVillaAPi.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetUser(int Id)
+        public async Task<IActionResult> GetUser(string Token)
+        {
+            int Id = Helpers.getUserIdFromToken(Token);
+            var user = await _unitOfWork.userRegisterRepository.GetByIdAsync(Id);
+            return Ok(user);
+        }
+        [HttpGet]
+        public async Task<IActionResult> GetUserById(int Id)
         {
             var user = await _unitOfWork.userRegisterRepository.GetByIdAsync(Id);
             return Ok(user);
         }
 
         #endregion
+
+        #region Products
+        [HttpPost]
+        public Task<IActionResult> AddProductCategory([FromForm] ProductCategory category)
+        {
+            return null;
+        }
+        #endregion Products
 
     }
 }

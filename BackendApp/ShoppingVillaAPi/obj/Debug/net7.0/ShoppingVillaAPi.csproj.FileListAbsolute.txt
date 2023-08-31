@@ -47,9 +47,6 @@ D:\Projects\ShoppingVilla\ShoppingVilla\BackendApp\ShoppingVillaAPi\bin\Debug\ne
 D:\Projects\ShoppingVilla\ShoppingVilla\BackendApp\ShoppingVillaAPi\bin\Debug\net7.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
 D:\Projects\ShoppingVilla\ShoppingVilla\BackendApp\ShoppingVillaAPi\bin\Debug\net7.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
 D:\Projects\ShoppingVilla\ShoppingVilla\BackendApp\ShoppingVillaAPi\bin\Debug\net7.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-D:\Projects\ShoppingVilla\ShoppingVilla\BackendApp\ShoppingVillaAPi\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
-D:\Projects\ShoppingVilla\ShoppingVilla\BackendApp\ShoppingVillaAPi\bin\Debug\net7.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
-D:\Projects\ShoppingVilla\ShoppingVilla\BackendApp\ShoppingVillaAPi\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
 D:\Projects\ShoppingVilla\ShoppingVilla\BackendApp\ShoppingVillaAPi\bin\Debug\net7.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 D:\Projects\ShoppingVilla\ShoppingVilla\BackendApp\ShoppingVillaAPi\bin\Debug\net7.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 D:\Projects\ShoppingVilla\ShoppingVilla\BackendApp\ShoppingVillaAPi\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
@@ -79,3 +76,5 @@ D:\Projects\ShoppingVilla\ShoppingVilla\BackendApp\ShoppingVillaAPi\obj\Debug\ne
 D:\Projects\ShoppingVilla\ShoppingVilla\BackendApp\ShoppingVillaAPi\bin\Debug\net7.0\ShoppingVilla.Common.dll
 D:\Projects\ShoppingVilla\ShoppingVilla\BackendApp\ShoppingVillaAPi\bin\Debug\net7.0\ShoppingVilla.Common.pdb
 D:\Projects\ShoppingVilla\ShoppingVilla\BackendApp\ShoppingVillaAPi\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Projects\ShoppingVilla\ShoppingVilla\BackendApp\ShoppingVillaAPi\bin\Debug\net7.0\runtimes\win\lib\net7.0\Microsoft.Win32.SystemEvents.dll
+D:\Projects\ShoppingVilla\ShoppingVilla\BackendApp\ShoppingVillaAPi\bin\Debug\net7.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll

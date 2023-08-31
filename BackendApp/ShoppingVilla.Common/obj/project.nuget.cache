@@ -1,8 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "4IX7ZWrxfB+5UJP2Z42iOGywZ3lxh6gcCUqhokDGmo5D9tjFecQoYFerkK//m6q+tIIXZFub1Gvjgq2vJ3khlw==",
+  "dgSpecHash": "Pxn/fAgrD0eeE3yYqL+F2GMkHx+UcOtb9RALN0CpvCOV+FODC0YK9e/Obun6OEjk1tCepVrJvV4lkN+tVbkmBQ==",
   "success": true,
   "projectFilePath": "D:\\Projects\\ShoppingVilla\\ShoppingVilla\\BackendApp\\ShoppingVilla.Common\\ShoppingVilla.Common.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\alamk\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\alamk\\.nuget\\packages\\microsoft.identitymodel.abstractions\\6.21.0\\microsoft.identitymodel.abstractions.6.21.0.nupkg.sha512",
+    "C:\\Users\\alamk\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\6.21.0\\microsoft.identitymodel.jsonwebtokens.6.21.0.nupkg.sha512",
+    "C:\\Users\\alamk\\.nuget\\packages\\microsoft.identitymodel.logging\\6.21.0\\microsoft.identitymodel.logging.6.21.0.nupkg.sha512",
+    "C:\\Users\\alamk\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.21.0\\microsoft.identitymodel.tokens.6.21.0.nupkg.sha512",
+    "C:\\Users\\alamk\\.nuget\\packages\\microsoft.win32.systemevents\\7.0.0\\microsoft.win32.systemevents.7.0.0.nupkg.sha512",
+    "C:\\Users\\alamk\\.nuget\\packages\\system.drawing.common\\7.0.0\\system.drawing.common.7.0.0.nupkg.sha512",
+    "C:\\Users\\alamk\\.nuget\\packages\\system.identitymodel.tokens.jwt\\6.21.0\\system.identitymodel.tokens.jwt.6.21.0.nupkg.sha512",
+    "C:\\Users\\alamk\\.nuget\\packages\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512"
+  ],
   "logs": []
 }

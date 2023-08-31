@@ -41,6 +41,9 @@ namespace ShoppingVilla.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("ParentId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("ModuleId");
@@ -53,28 +56,80 @@ namespace ShoppingVilla.Data.Migrations
                             Id = 1,
                             Alias = "users",
                             ModuleId = 1,
-                            Name = "Users"
+                            Name = "User Settings",
+                            ParentId = 0
                         },
                         new
                         {
                             Id = 2,
-                            Alias = "edit_user",
+                            Alias = "users",
                             ModuleId = 1,
-                            Name = "Add User"
+                            Name = "Users",
+                            ParentId = 1
                         },
                         new
                         {
                             Id = 3,
-                            Alias = "roles",
+                            Alias = " ",
                             ModuleId = 1,
-                            Name = "Roles"
+                            Name = "Add User",
+                            ParentId = 1
                         },
                         new
                         {
                             Id = 4,
+                            Alias = "roles",
+                            ModuleId = 1,
+                            Name = "Roles",
+                            ParentId = 1
+                        },
+                        new
+                        {
+                            Id = 5,
                             Alias = "add_role",
                             ModuleId = 1,
-                            Name = "Add Role"
+                            Name = "Add Role",
+                            ParentId = 1
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Alias = "menus",
+                            ModuleId = 1,
+                            Name = "Menus",
+                            ParentId = 0
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Alias = "menus",
+                            ModuleId = 1,
+                            Name = "Menu Setting",
+                            ParentId = 6
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Alias = "menus",
+                            ModuleId = 2,
+                            Name = "Products",
+                            ParentId = 0
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Alias = "product_categories",
+                            ModuleId = 2,
+                            Name = "Product Categories",
+                            ParentId = 8
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Alias = "add_product_category",
+                            ModuleId = 2,
+                            Name = "Add Product Categories",
+                            ParentId = 8
                         });
                 });
 
@@ -114,6 +169,34 @@ namespace ShoppingVilla.Data.Migrations
                             IsActive = true,
                             Name = "Masters"
                         });
+                });
+
+            modelBuilder.Entity("ShoppingVilla.Data.Entities.Models.Dashboard.Products.ProductCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FileName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("productCategories");
                 });
 
             modelBuilder.Entity("ShoppingVilla.Data.Entities.Models.Role", b =>
@@ -243,7 +326,7 @@ namespace ShoppingVilla.Data.Migrations
                         {
                             Id = 1,
                             ConfirmPassword = "0rp0sI3+yuqj7fHLvG0ZYg==",
-                            CreatedDate = new DateTime(2023, 7, 31, 23, 42, 7, 671, DateTimeKind.Local).AddTicks(9524),
+                            CreatedDate = new DateTime(2023, 8, 20, 17, 3, 45, 746, DateTimeKind.Local).AddTicks(6881),
                             Email = "",
                             IsActive = true,
                             Mobile = "",

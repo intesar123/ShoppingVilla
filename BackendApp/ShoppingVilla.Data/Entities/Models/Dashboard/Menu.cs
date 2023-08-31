@@ -16,6 +16,7 @@ namespace ShoppingVilla.Data.Entities.Models.Dashboard
         public int Id { get; set; }
         public string Name { get; set; }
         public string Alias { get; set; }
+        public int ParentId { get; set; }
         [ForeignKey("Module")]
         public int ModuleId { get; set; }
         [JsonIgnore]

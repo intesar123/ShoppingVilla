@@ -2,6 +2,7 @@
 using ShoppingVilla.Data.Entities;
 using ShoppingVilla.Data.Entities.Models;
 using ShoppingVilla.Data.Entities.Models.Dashboard;
+using ShoppingVilla.Data.Entities.Models.Dashboard.Products;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,7 @@ namespace ShoppingVilla.Data.Data
         #region Dashboard
         public DbSet<Module> modules { get; set; }
         public DbSet<Menu> menu { get; set; }
+        public DbSet<ProductCategory> productCategories { get; set; }
         #endregion
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {

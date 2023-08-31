@@ -74,7 +74,7 @@ namespace ShoppingVillaAPi.Controllers
             {
                 return BadRequest();
             }
-            return Ok( new { Token = userLogin.Result.Token, UserId=userLogin.Result.UserId });
+            return Ok( new { Token = userLogin.Result.Token });
         }
 
         [HttpGet]
